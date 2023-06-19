@@ -1,11 +1,16 @@
 package com.example.person.model;
 
+import jakarta.persistence.*;
+
 import java.io.Serial;
 import java.io.Serializable;
-
+@Entity
+@Table(name = "tb_person")
 public class Person implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String lastName;
@@ -13,6 +18,13 @@ public class Person implements Serializable {
     private String gender;
 
     public Person() {
+    }
+
+    public Person(String name, String lastName, String address, String gender) {
+        this.name = name;
+        this.lastName = lastName;
+        this.address = address;
+        this.gender = gender;
     }
 
     public Long getId() {

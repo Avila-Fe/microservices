@@ -21,7 +21,7 @@ public class CalculatorController {
     }
 
 
-    @RequestMapping(value="/subtraction/{numberOne}/{numberTwo}", method=RequestMethod.GET)
+    @RequestMapping(value="/sub/{numberOne}/{numberTwo}", method=RequestMethod.GET)
     public Double subtraction(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
         if (!NumberConverter.isNumeric(numberOne) || !NumberConverter.isNumeric(numberTwo)) {
             throw new UnsupportedMathOperationException("Please set a numeric value!");
@@ -29,7 +29,7 @@ public class CalculatorController {
         return math.subtraction(NumberConverter.covertToDouble(numberOne), NumberConverter.covertToDouble(numberTwo));
     }
 
-    @RequestMapping(value="/multiplication/{numberOne}/{numberTwo}", method=RequestMethod.GET)
+    @RequestMapping(value="/mult/{numberOne}/{numberTwo}", method=RequestMethod.GET)
     public Double multiplication(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
         if (!NumberConverter.isNumeric(numberOne) || !NumberConverter.isNumeric(numberTwo)) {
             throw new UnsupportedMathOperationException("Please set a numeric value!");
@@ -37,7 +37,7 @@ public class CalculatorController {
         return math.multiplication(NumberConverter.covertToDouble(numberOne), NumberConverter.covertToDouble(numberTwo));
     }
 
-    @RequestMapping(value="/division/{numberOne}/{numberTwo}", method=RequestMethod.GET)
+    @RequestMapping(value="/div/{numberOne}/{numberTwo}", method=RequestMethod.GET)
     public Double division(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
         if (!NumberConverter.isNumeric(numberOne) || !NumberConverter.isNumeric(numberTwo)) {
             throw new UnsupportedMathOperationException("Please set a numeric value!");
